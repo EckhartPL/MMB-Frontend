@@ -1,0 +1,23 @@
+.logo-canvas {
+  position: absolute;
+  z-index: -1;
+}
+
+.main-logo {
+  text-align: center;
+  margin: auto;
+  font-size: 2.5em;
+  letter-spacing: .3em;
+  font-weight: bold;
+  box-shadow: 0px 5px #fff;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.main-logo-container {
+  margin: auto;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}

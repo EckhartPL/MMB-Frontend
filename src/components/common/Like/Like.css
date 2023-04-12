@@ -1,0 +1,24 @@
+.social {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+svg {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.liked {
+  fill: #FFFFFF;
+}
+
+.not-liked {
+  fill: #9a9a9e;
+}
+
+.likesCounter {
+  margin-top: 5px;
+}

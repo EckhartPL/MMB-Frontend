@@ -1,0 +1,44 @@
+.form-container {
+  color: #fff;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: var(--container-width);
+}
+
+.add-article-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+}
+
+.add-article-title, .add-article-description {
+  margin: 10px 0;
+}
+
+h1 {
+  margin: 20px auto;
+  text-transform: uppercase;
+}
+
+.add-article-title input, textarea {
+  width: 100%;
+  margin-top: 5px;
+  padding: 1rem;
+  box-shadow: 0 0 5px #888888;
+}
+
+label {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.add-article-avatar-svg {
+  background-color: #fff;
+}
+
+.add-article-avatar-svg:hover {
+  fill: #fff;
+}
