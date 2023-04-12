@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# MMBlog Backend with Nest.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the backend repository for a personal blog built with Nest.js, a powerful and extensible Node.js framework for building server-side applications. This backend server provides APIs for managing blog posts, file uploads, comments (soon) and user authentication.
 
-## Available Scripts
+## App Tree
 
-In the project directory, you can run:
+```bash
+├───src
+│   ├───components
+│   │   ├───article
+│   │   │   ├───dto
+│   │   │   └───entities
+│   │   ├───auth
+│   │   │   ├───dto
+│   │   │   ├───guards
+│   │   │   └───strategies
+│   │   └───user
+│   │       ├───dto
+│   │       └───entities
+│   ├───config
+│   ├───decorators
+│   ├───interceptors
+│   ├───pipes
+│   └───utils
+└───types
+    ├───article
+    ├───auth
+    ├───comment
+    ├───tokens
+    └───user
+  ```
+  
+## Demo
 
-### `npm start`
+[![mmb-showcase.gif](https://s2.gifyu.com/images/mmb-showcase.gif)](https://gifyu.com/image/SdQB5)
+    
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- CRUD operations for managing blog posts, upload files, and users.
+- User authentication and authorization using JWT (JSON Web Tokens).
+- RESTful API endpoints for easy integration with frontend applications.
+- Robust error handling and validation using Nest.js built-in features.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- [Nest.js](https://nestjs.com/) - A powerful and modular Node.js framework for building server-side applications.
+- [TypeScript](https://www.typescriptlang.org/) - A statically typed superset of JavaScript that enhances developer productivity.
+- [MySQL](https://www.mysql.com/) - A popular database for storing blog posts, comments, and user data.
+- [Passport](http://www.passportjs.org/) - A flexible and widely used authentication middleware for Node.js.
+- [JWT](https://jwt.io/) - JSON Web Tokens for secure and stateless authentication.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## License
 
-### `npm run build`
+This repository has no license, then all rights are reserved and it is not Open Source or Free. 
+You cannot modify or redistribute this code without explicit permission from the copyright holder (Mateusz Masek).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contact
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you have any questions, suggestions, or feedback, please feel free to contact me through [mateusz.masek@gmail.com](mailto:mateusz.masek@gmail.com) or [https://github.com/EckhartPL](https://github.com/EckhartPL).
