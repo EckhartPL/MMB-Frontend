@@ -1,0 +1,9 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  border: 3px solid red;
+}
+
+.profile-upload-picture p {
+  padding: 20px;
+}

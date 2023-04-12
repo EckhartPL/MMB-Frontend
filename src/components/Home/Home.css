@@ -1,0 +1,10 @@
+body {
+  color: #fff;
+}
+
+.home-container {
+  height: 100vh;
+  width: var(--container-width);
+  padding: var(--container-padding);
+  margin: auto;
+}
