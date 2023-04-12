@@ -1,4 +1,4 @@
-# MMBlog Backend with Nest.js
+# MMBlog Frontend with React.js
 
 This is the frontend repository for a personal blog built with React.js, a powerful and extensible Node.js framework for building server-side applications. This backend server provides APIs for managing blog posts, file uploads, comments (soon) and user authentication.
 
