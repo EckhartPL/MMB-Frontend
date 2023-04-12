@@ -1,0 +1,33 @@
+:root {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  background: #1c1d24;
+  --primary-color: #45f3ff;
+  --secondary-color: #479bff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-color: #6649b8 #1e1e24;
+  scrollbar-width: thin;
+  min-height: 100vh;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
