@@ -1,33 +1,33 @@
 # MMBlog Backend with Nest.js
 
-This is the backend repository for a personal blog built with Nest.js, a powerful and extensible Node.js framework for building server-side applications. This backend server provides APIs for managing blog posts, file uploads, comments (soon) and user authentication.
+This is the frontend repository for a personal blog built with React.js, a powerful and extensible Node.js framework for building server-side applications. This backend server provides APIs for managing blog posts, file uploads, comments (soon) and user authentication.
 
 ## App Tree
 
 ```bash
-├───src
-│   ├───components
-│   │   ├───article
-│   │   │   ├───dto
-│   │   │   └───entities
-│   │   ├───auth
-│   │   │   ├───dto
-│   │   │   ├───guards
-│   │   │   └───strategies
-│   │   └───user
-│   │       ├───dto
-│   │       └───entities
-│   ├───config
-│   ├───decorators
-│   ├───interceptors
-│   ├───pipes
-│   └───utils
-└───types
-    ├───article
-    ├───auth
-    ├───comment
-    ├───tokens
-    └───user
+├───public
+└───src
+    ├───components
+    │   ├───Article
+    │   ├───Comment
+    │   ├───common
+    │   │   ├───Avatar
+    │   │   ├───Btn
+    │   │   ├───Like
+    │   │   ├───Popup
+    │   │   ├───ProfileHeader
+    │   │   └───Status
+    │   ├───Header
+    │   │   └───Filter
+    │   ├───Home
+    │   ├───Login
+    │   ├───Logo
+    │   ├───Navbar
+    │   ├───Register
+    │   └───User
+    │       └───Profile
+    ├───contexts
+    └───utils
   ```
   
 ## Demo
@@ -36,18 +36,17 @@ This is the backend repository for a personal blog built with Nest.js, a powerfu
     
 ## Features
 
-- CRUD operations for managing blog posts, upload files, and users.
-- User authentication and authorization using JWT (JSON Web Tokens).
-- RESTful API endpoints for easy integration with frontend applications.
-- Robust error handling and validation using Nest.js built-in features.
+- View blog articles with title, content, author, and date posted
+- Leave like (comments soon) on articles
+- Register and login to manage user profile
+- Responsive design for desktop and mobile devices
 
 ## Technologies Used
-
-- [Nest.js](https://nestjs.com/) - A powerful and modular Node.js framework for building server-side applications.
-- [TypeScript](https://www.typescriptlang.org/) - A statically typed superset of JavaScript that enhances developer productivity.
-- [MySQL](https://www.mysql.com/) - A popular database for storing blog posts, comments, and user data.
-- [Passport](http://www.passportjs.org/) - A flexible and widely used authentication middleware for Node.js.
-- [JWT](https://jwt.io/) - JSON Web Tokens for secure and stateless authentication.
+- [React.js](https://pl.reactjs.org/) - A popular JavaScript library for building user interfaces
+- React Router - A routing library for handling client-side routing in React applications
+- Context API - A built-in state management solution in React for managing global application state
+- CSS Modules - A CSS approach for locally-scoped styles in React components
+- ES6+ - Modern JavaScript features for writing clean and efficient code
 
 ## License
 
