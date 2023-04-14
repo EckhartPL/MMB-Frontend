@@ -26,7 +26,6 @@ export const Profile = () => {
         .then(res => res.json())
         .then(data => {
           setUser(data)
-          console.log(data)
         });
     } catch (e) {
       throw new Error(`error message: ${e}`);
@@ -36,7 +35,6 @@ export const Profile = () => {
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setAvatar(e.target.files[0]);
-      console.log(avatar);
     }
   }
 
@@ -45,7 +43,6 @@ export const Profile = () => {
       console.error('File is not uploaded', avatar);
       return;
     }
-    console.log(avatar);
 
     const data = new FormData();
     data.append('avatar', avatar);

@@ -34,14 +34,11 @@ export const Like = (props: Prop) => {
             if (data.article === null) {
               setIsLiked(false);
               setLikesCounter(likesCounter - 1)
-              console.log('Disliked');
             } else {
               user.likedArticles?.push(data.article);
               setLikesCounter(likesCounter + 1)
               setIsLiked(true);
-              console.log('Liked');
             }
-            console.log('article: ', data.article)
           });
       }, 300)
     }
@@ -52,7 +49,6 @@ export const Like = (props: Prop) => {
   }, [])
 
   useEffect(() => {
-    console.log(isLiked);
   }, [isLiked])
 
   return <>

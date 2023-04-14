@@ -37,7 +37,6 @@ export const Login = () => {
             profilePictureUrl: data.user.profilePictureUrl,
             likedArticles: data.user.likedArticles,
           });
-          console.log('Logging in... \nData: ', tokens);
         })
         .catch(err => console.error(err));
       navigate('/article/1');

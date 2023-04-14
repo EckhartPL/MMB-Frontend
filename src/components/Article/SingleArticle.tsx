@@ -27,7 +27,6 @@ export const SingleArticle = (props: ArticleInterface) => {
 
     if (window.innerWidth >= 600) {
       setIsMobile(false);
-      //console.log(window.innerWidth);
     } else {
       setIsMobile(true);
     }
@@ -36,8 +35,6 @@ export const SingleArticle = (props: ArticleInterface) => {
   }, [windowSize]);
 
   const moveLeft = () => {
-    console.log(user);
-
     const art = document.querySelector(`.article-${id}`) as HTMLDivElement;
 
     if (window.getComputedStyle(art).width === '350px') {

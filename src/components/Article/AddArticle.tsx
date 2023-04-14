@@ -36,7 +36,7 @@ export const AddArticle = () => {
         body: JSON.stringify(form),
       })
         .then(res => res.json())
-        .then(data => console.log(data));
+        // .then(data => console.log(data));
       navigate('/article/1');
       <Logout msg={'test'} />
     } finally {
