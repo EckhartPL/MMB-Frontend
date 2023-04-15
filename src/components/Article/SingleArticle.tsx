@@ -9,45 +9,18 @@ import './SingleArticle.css'
 
 export const SingleArticle = (props: ArticleInterface) => {
   const { id, createdAt, description, title, user, likes } = props;
-  const [isMobile, setIsMobile] = useState(false);
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  })
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      })
-    }
-
-    window.addEventListener('resize', handleResize)
-
-    if (window.innerWidth >= 600) {
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-    }
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, [windowSize]);
 
   const moveLeft = () => {
     const art = document.querySelector(`.article-${id}`) as HTMLDivElement;
 
     if (window.getComputedStyle(art).width === '350px') {
-      setIsMobile(false);
       art?.classList.toggle('move-left');
       const ext = document.querySelector(`.extended-description-${id}`) as HTMLDivElement;
-      ext.style.display === 'block'
+      ext.style.display === 'flex'
         ? ext.style.display = 'none'
-        : ext.style.display = 'block';
+        : ext.style.display = 'flex';
       const desc = document.querySelector(`.article-${id} .description p`);
       desc?.classList.toggle('blur');
-    } else {
-      setIsMobile(true);
     }
   }
   const svgOnMouseEnter = () => {
@@ -116,60 +89,10 @@ export const SingleArticle = (props: ArticleInterface) => {
             ></path>
           </g>
         </svg>
-        {isMobile
-          ?
-          description
-            .length > 449
-            &&
-            (
-              description
-                .slice(0, 450)
-                .endsWith('.')
-              ||
-              description
-                .slice(0, 450)
-                .endsWith(',')
-              ||
-              description
-                .slice(0, 450)
-                .endsWith(';')
-            )
-            ?
-            <p>{description.slice(0, 449) + '...'}</p>
-            :
-            <p>{description.length > 449
-              ? description.slice(0, 450) + '...'
-              : description}</p>
-          //IF NOT MOBILE THEN...
-          :
-          description
-            .length > 649
-            &&
-            (
-              description
-                .slice(0, 650)
-                .endsWith('.')
-              ||
-              description
-                .slice(0, 650)
-                .endsWith(',')
-              ||
-              description
-                .slice(0, 650)
-                .endsWith(';')
-            )
-            ?
-            <p>{description.slice(0, 649) + '...'}</p>
-            :
-            <p>{description.length > 649
-              ? description.slice(0, 650) + '...'
-              : description}</p>
-        }
+        <p>{description}</p>
       </div>
       <div className={`extended-description-${id}`}>
-        <p>{description.length > 1179
-          ? description.slice(0, 1180) + '...'
-          : description}</p>
+        <p>{description}</p>
       </div>
       <div className="social">
         <Like articleId={id} likes={likes} />

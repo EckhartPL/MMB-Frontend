@@ -3,7 +3,7 @@
         "baseUrl": ".",
         "paths": {
             "types": [
-                "../Blog-BE/types"
+                "../backend/types"
             ]
         }
     }
