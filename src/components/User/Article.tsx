@@ -1,7 +1,9 @@
 import React from 'react';
 
 export const Article = () => {
-    return <>
-        <div className="article-container"></div>
+  return (
+    <>
+      <div className="article-container"></div>
     </>
-}
+  );
+};

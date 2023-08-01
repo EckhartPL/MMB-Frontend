@@ -9,6 +9,17 @@
   overflow: hidden;
 }
 
+.box-register {
+  position: relative;
+  margin: auto;
+  margin-top: calc(50vh - 250px);
+  width: 380px;
+  height: 480px;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 .box::before {
   content: '';
   position: absolute;
@@ -22,6 +33,31 @@
 }
 
 .box::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -3s;
+}
+
+.box-register::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+}
+
+.box-register::after {
   content: '';
   position: absolute;
   top: -50%;
@@ -92,8 +128,8 @@
   transition: 0.5s;
 }
 
-.input-box input:valid~span,
-.input-box input:focus~span {
+.input-box input:valid ~ span,
+.input-box input:focus ~ span {
   color: #45f3ff;
   transform: translateX(-10px) translateY(-34px);
   font-size: 0.75em;
@@ -112,8 +148,8 @@
   z-index: 9;
 }
 
-.input-box input:valid~i,
-.input-box input:focus~i {
+.input-box input:valid ~ i,
+.input-box input:focus ~ i {
   height: 44px;
 }
 
@@ -134,7 +170,7 @@
   color: #45f3ff;
 }
 
-input[type="submit"] {
+input[type='submit'] {
   border: none;
   outline: none;
   background-color: #45f3ff;
@@ -146,7 +182,7 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:active {
+input[type='submit']:active {
   opacity: 0.8;
 }
 
@@ -162,6 +198,6 @@ input[type="submit"]:active {
   fill: #0e0e11;
 }
 .unlocked {
-  fill: #FFFFFF;
+  fill: #ffffff;
   opacity: 0.8;
 }

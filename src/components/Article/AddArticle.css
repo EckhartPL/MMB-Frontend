@@ -14,7 +14,8 @@
   height: 50%;
 }
 
-.add-article-title, .add-article-description {
+.add-article-title,
+.add-article-description {
   margin: 10px 0;
 }
 
@@ -23,7 +24,8 @@ h1 {
   text-transform: uppercase;
 }
 
-.add-article-title input, textarea {
+.add-article-title input,
+textarea {
   width: 100%;
   margin-top: 5px;
   padding: 1rem;

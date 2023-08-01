@@ -3,8 +3,30 @@ body {
 }
 
 .home-container {
+  display: flex;
   height: 100vh;
   width: var(--container-width);
   padding: var(--container-padding);
   margin: auto;
+}
+
+.best-articles-container {
+  align-items: center;
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  font-size: 2ch;
+}
+
+.feature-list p {
+  margin-top: 50px;
+  font-size: 2ch;
+}
+
+.feature-list li {
+  margin-top: 50px;
+  font-size: 2ch;
 }

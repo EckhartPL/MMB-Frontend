@@ -10,8 +10,8 @@ header .btn {
   background: #1e1e24;
   width: 100px;
   font-weight: 600;
-  font-size: .8rem;
-  margin: .5em .5em .5em 0;
+  font-size: 0.8rem;
+  margin: 0.5em 0.5em 0.5em 0;
   line-height: 30px;
-  padding: .5em 4em;
+  padding: 0.5em 4em;
 }

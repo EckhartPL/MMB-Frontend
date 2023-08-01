@@ -1,22 +1,22 @@
-div[class^="article-"] {
+div[class^='article-'] {
   display: flex;
   flex-direction: column;
   width: 350px;
   margin: 0 auto 125px auto;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   z-index: 99999;
 }
 
-div[class^="article-"]:last-child {
+div[class^='article-']:last-child {
   display: flex;
   flex-direction: column;
   width: 350px;
   margin: 0 auto 25px auto;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   z-index: 99999;
 }
 
-div[class^="article-"]:hover .avatar {
+div[class^='article-']:hover .avatar {
   box-shadow: 5px -5px rgba(46, 111, 201, 0.1);
 }
 
@@ -36,8 +36,8 @@ div[class^="article-"]:hover .avatar {
   right: calc(50% - 2rem);
   border-radius: 50%;
   overflow: hidden;
-  transition-duration: .5s;
-  border: 3px solid #FFFFFF;
+  transition-duration: 0.5s;
+  border: 3px solid #ffffff;
 }
 
 .title-bar-container .avatar img {
@@ -49,7 +49,7 @@ div[class^="article-"]:hover .avatar {
   height: 75px;
   width: 225px;
   font-family: Oswald;
-  padding: .2em .4em;
+  padding: 0.2em 0.4em;
   font-size: 1.25rem;
   justify-content: left;
 }
@@ -57,7 +57,7 @@ div[class^="article-"]:hover .avatar {
 .title-bar-container a {
   height: 75px;
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .title-bar-containe .created-at {
@@ -65,13 +65,13 @@ div[class^="article-"]:hover .avatar {
   width: 40%;
   font-size: 1em;
   padding: 1em;
-  letter-spacing: .1ch;
+  letter-spacing: 0.1ch;
 }
 
-div[class^="article-"] .description {
+div[class^='article-'] .description {
   display: flex;
   position: relative;
-  font-family: "PT-Sans";
+  font-family: 'PT-Sans';
   font-size: 1em;
   width: 100%;
   height: 300px;
@@ -85,18 +85,18 @@ div[class^="article-"] .description {
   cursor: pointer;
 }
 
-div[class^="article-"] .description p {
+div[class^='article-'] .description p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-div[class^="article-"] .description p:before {
-  content:'';
-  width:100%;
-  height:100%;    
-  position:absolute;
-  left:0;
-  top:0;
+div[class^='article-'] .description p:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
   background: linear-gradient(transparent 240px, #515174);
 }
 
@@ -105,7 +105,7 @@ div[class^="article-"] .description p:before {
   -webkit-filter: blur(1px);
 }
 
-div[class^="extended-description-"] {
+div[class^='extended-description-'] {
   display: none;
   position: absolute;
   top: 75px;
@@ -114,7 +114,7 @@ div[class^="extended-description-"] {
   padding: 11px;
   background-color: #515174;
   /* animation name duration delay finite direction */
-  animation: extend .5s linear 0s forwards normal;
+  animation: extend 0.5s linear 0s forwards normal;
 }
 
 @keyframes extend {
@@ -127,12 +127,12 @@ div[class^="extended-description-"] {
   }
 }
 
-div[class^="article-"] div[class^="extended-description-"] p {
+div[class^='article-'] div[class^='extended-description-'] p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-div[class^="article-"] div[class^="extended-description-"] p:before {
+div[class^='article-'] div[class^='extended-description-'] p:before {
   content: '';
   position: absolute;
   height: 100%;
@@ -151,7 +151,7 @@ div[class^="article-"] div[class^="extended-description-"] p:before {
 }
 
 .description svg {
-  transition: .5s;
+  transition: 0.5s;
   position: absolute;
   right: 0;
   top: calc(50% - 2.5rem);
@@ -165,22 +165,32 @@ div[class^="article-"] div[class^="extended-description-"] p:before {
   fill: #515174;
 }
 
+.social {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: fit-content;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
 /* Small screen */
 @media only screen and (max-width: 600px) {
-  div[class^="article-"] {
+  div[class^='article-'] {
     width: 250px;
   }
 
-  div[class^="article-"]:last-child {
+  div[class^='article-']:last-child {
     width: 250px;
   }
 
   .title-bar-container {
     height: 75px;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
-  div[class^="article-"] .description {
+  div[class^='article-'] .description {
     cursor: default;
   }
 
@@ -188,7 +198,7 @@ div[class^="article-"] div[class^="extended-description-"] p:before {
     height: 75px;
     width: 150px;
     font-family: Oswald;
-    padding: .2em 0;
+    padding: 0.2em 0;
     font-size: 1rem;
     justify-content: left;
   }

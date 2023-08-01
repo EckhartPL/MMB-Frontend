@@ -6,8 +6,8 @@
   right: calc(50% - 2rem);
   border-radius: 50%;
   overflow: hidden;
-  transition-duration: .5s;
-  border: 3px solid #FFFFFF;
+  transition-duration: 0.5s;
+  border: 3px solid #ffffff;
 }
 
 .avatar img {

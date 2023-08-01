@@ -1,46 +1,37 @@
 import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import './Register.css'
+import '../Login/Login.css';
+import { apiServer, endpoints } from '../../services';
 
-export const Register = () => {
+export function Register() {
   const [form, setForm] = useState({
     email: '',
     password: '',
+    confirmPassword: '',
   });
-  const [loading, setLoading] = useState<boolean>(false);
 
   const register = async (e: FormEvent) => {
     e.preventDefault();
+    const { password, confirmPassword } = form;
 
-    setLoading(true);
-
-    try {
-      await fetch('http://localhost:3001/auth/register', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(form)
-      })
-    } finally {
-      setLoading(false);
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
     }
-  }
+
+    await apiServer.post(endpoints.register, form);
+  };
 
   const updateForm = (key: string, value: string) => {
-    setForm(form => ({
-      ...form,
+    setForm((formData) => ({
+      ...formData,
       [key]: value,
     }));
-  }
-
-  if (loading) {
-    <h2>Trwa logowanie...</h2>
-  }
+  };
 
   return (
-    <div className="box">
+    <div className="box-register">
       <form className="form" onSubmit={register}>
         <h2>Register</h2>
         <div className="input-box">
@@ -51,9 +42,9 @@ export const Register = () => {
             required
             maxLength={255}
             value={form.email}
-            onChange={e => updateForm('email', e.target.value)}
+            onChange={(e) => updateForm('email', e.target.value)}
           />
-          <i></i>
+          <i />
         </div>
         <div className="input-box">
           <span>Password</span>
@@ -63,15 +54,27 @@ export const Register = () => {
             required
             maxLength={255}
             value={form.password}
-            onChange={e => updateForm('password', e.target.value)}
+            onChange={(e) => updateForm('password', e.target.value)}
           />
-          <i></i>
+          <i />
+        </div>
+        <div className="input-box">
+          <span>Confirm password</span>
+          <input
+            type="password"
+            name="register-confirm-pwd"
+            required
+            maxLength={255}
+            value={form.confirmPassword}
+            onChange={(e) => updateForm('confirmPassword', e.target.value)}
+          />
+          <i />
         </div>
         <div className="links">
-          <Link to={'/auth/login'} >Already have an account?</ Link>
+          <Link to="/auth/login">Already have an account?</Link>
         </div>
         <input type="submit" value="Register" />
       </form>
     </div>
   );
-};
+}

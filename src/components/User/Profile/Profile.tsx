@@ -1,12 +1,12 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { TokensContext } from '../../../contexts/token.context';
-import { UserObj } from 'types';
+import { TokensContext } from '../../../contexts';
 
 import './Profile.css';
+import { UserObj } from '@backendTypes';
 
-export const Profile = () => {
-  const { tokens } = useContext(TokensContext)
+export function Profile() {
+  const { tokens } = useContext(TokensContext);
   const [avatar, setAvatar] = useState<File>();
   const [user, setUser] = useState<UserObj>({
     email: '',
@@ -14,29 +14,29 @@ export const Profile = () => {
     profilePictureUrl: '',
   });
   const params = useParams();
-  const userName = params.userName;
+  const { userName } = params;
 
   useEffect(() => {
     try {
       fetch(`http://localhost:3001/user/upload/${userName}`, {
         headers: {
-          'Authorization': `Bearer ${tokens.access_token}`,
-        }
+          Authorization: `Bearer ${tokens.access_token}`,
+        },
       })
-        .then(res => res.json())
-        .then(data => {
-          setUser(data)
+        .then((res) => res.json())
+        .then((data) => {
+          setUser(data);
         });
     } catch (e) {
       throw new Error(`error message: ${e}`);
     }
-  }, []);
+  });
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setAvatar(e.target.files[0]);
     }
-  }
+  };
 
   const handleUploadClick = async () => {
     if (!avatar) {
@@ -44,38 +44,47 @@ export const Profile = () => {
       return;
     }
 
-    const data = new FormData();
-    data.append('avatar', avatar);
+    const formData = new FormData();
+    formData.append('avatar', avatar);
+
+    // const res = await apiServer.post(endpoints.userUploadPicture, data, tokens.access_token);
+
+    // setUser((e) => ({
+    //   ...e,
+    //   profilePictureUrl: res.data.profilePictureUrl,
+    // }));
 
     await fetch('http://localhost:3001/user/upload', {
       method: 'POST',
-      body: data,
+      body: formData,
       headers: {
-        //'content-type': avatar.type,
-        //'boundary': 'asd',
-        //'content-length': `${avatar.size}`,
-        'Authorization': `Bearer ${tokens.access_token}`,
+        Authorization: `Bearer ${tokens.access_token}`,
       },
     })
-      .then(res => res.json())
-      .then(data => setUser(e => ({
-        ...e,
-        profilePictureUrl: data,
-      })))
-      .catch(err => console.error(err));
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUser((e) => ({
+          ...e,
+          profilePictureUrl: data,
+        }));
+      })
+      .catch((err) => console.error(err));
   };
 
-  return <>
+  return (
     <div className="profile-container">
       <div className="profile-upload-picture">
         <label>
           <p>Upload picture</p>
           {user ? user.name : <h1>user is not logged in</h1>}
           <input type="file" name="avatar" onChange={handleFileChange} accept=".jpg, .jpeg, .png" />
-          <button type="submit" onClick={handleUploadClick}>Upload</button>
-          <progress max="100" value="0"></progress>
+          <button type="submit" onClick={handleUploadClick}>
+            Upload
+          </button>
+          <progress max="100" value="0" />
         </label>
       </div>
     </div>
-  </>
+  );
 }
