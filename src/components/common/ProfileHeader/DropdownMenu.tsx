@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../../contexts';
+import { endpoints } from '../../../services';
 
 export const DropdownMenu = () => {
   const { logout, currentUser } = useAuth();
@@ -8,11 +9,11 @@ export const DropdownMenu = () => {
     <div className="dropdown">
       <div className="triangle-pointer" />
       <div className="current-user">
-        Logged in as <strong>{currentUser?.name}</strong>
+        Logged in as <br /> <strong>{currentUser?.name || currentUser?.email}</strong>
       </div>
       <div className="dropdown-divider" />
       <div className="profile-link">
-        <Link to={`/user/${currentUser?.name}`}>Profile</Link>
+        <Link to={endpoints.userProfile}>Profile</Link>
       </div>
       <div className="profile-link">
         <Link to={`/user/${currentUser?.name}/articles`}>My Articles</Link>

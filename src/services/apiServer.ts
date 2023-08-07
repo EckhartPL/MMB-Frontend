@@ -49,7 +49,7 @@ class ApiServer implements ApiServerType {
   async postFormData<ResponseData>(
     endpoint: string,
     requestData: FormData,
-    accessToken: string,
+    accessToken?: string,
   ): Promise<ClientApiResponse<ResponseData>> {
     const init: RequestInit = {
       method: 'POST',

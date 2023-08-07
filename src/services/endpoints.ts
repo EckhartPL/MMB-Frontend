@@ -1,12 +1,15 @@
 export const endpoints = {
+  home: '/',
+  contact: '/contact',
   login: 'auth/login',
   register: 'auth/register',
   logout: 'auth/logout',
   articles: 'article',
   addArticle: 'article/add',
   likeArticle: 'article/like/',
-  countComments: 'comments/count/',
+  countComments: 'article/comments/count',
   userArticle: 'user/:userName/',
-  userProfile: 'user/:userName',
+  userProfile: 'user/profile',
+  userSettings: 'user/settings',
   userUploadPicture: 'upload/avatar',
 };

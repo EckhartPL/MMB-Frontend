@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { LoginRequest } from '@backendTypes';
 import { useAuth } from '../../contexts';
 
@@ -9,8 +9,13 @@ import { endpoints } from '../../services';
 export function Login() {
   const [credentials, setCredentials] = useState<LoginRequest>({ email: '', password: '' });
   const [pwdVisible, setPwdVisible] = useState<boolean>(false);
-  const { login } = useAuth();
+  const { login, currentUser } = useAuth();
   const nav = useNavigate();
+
+  if (currentUser) {
+    window.alert('You are already logged in');
+    return <Navigate to={endpoints.home} replace />;
+  }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();

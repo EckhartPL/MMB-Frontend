@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { defaultAvatar } from '../../../utils';
 import { useAuth } from '../../../contexts';
+import { endpoints } from '../../../services';
 
 export const AvatarHeader = () => {
   const { currentUser } = useAuth();
@@ -9,12 +10,16 @@ export const AvatarHeader = () => {
     <div className="avatar-header">
       <label>
         {currentUser?.profilePictureUrl !== null ? (
-          <Link to={`/user/${currentUser?.name}`}>
-            <img src={currentUser?.profilePictureUrl} alt={`${currentUser?.name} profile`} />
+          <Link to={endpoints.userProfile}>
+            <img src={currentUser?.profilePictureUrl} alt={`${currentUser?.name || currentUser?.email} profile`} />
           </Link>
         ) : (
-          <Link to={`/user/${currentUser.name}`}>
-            <img className="default-avatar" src={defaultAvatar} alt={`${currentUser.name} profile`} />
+          <Link to={endpoints.userProfile}>
+            <img
+              src={defaultAvatar}
+              alt={`${currentUser?.name || currentUser?.email} profile`}
+              className="default-avatar"
+            />
           </Link>
         )}
         <svg
