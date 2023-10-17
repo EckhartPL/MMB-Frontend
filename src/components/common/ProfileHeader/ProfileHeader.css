@@ -22,7 +22,7 @@
   overflow: hidden;
 }
 
-.avatar-header-container .avatar-header img {
+.avatar-header-container .avatar-header img:nth-child(1) {
   position: absolute;
   height: 50px;
   width: 50px;
@@ -34,11 +34,22 @@
   border: 3px solid #ffffff;
 }
 
+.avatar-header-container .avatar-header img:nth-child(2) {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  transition: 0.25s;
+  cursor: pointer;
+  filter: invert(1);
+}
+
 .avatar-header-container .avatar-header .default-avatar {
   background-color: #ffffff;
 }
 
-.avatar-header-container svg {
+/* .avatar-header-container svg {
   position: absolute;
   top: 10px;
   right: 0;
@@ -47,7 +58,7 @@
   fill: white;
   transition: 0.25s;
   cursor: pointer;
-}
+} */
 
 .dropdown {
   animation: dropdown 0.5s forwards;

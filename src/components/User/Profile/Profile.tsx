@@ -6,6 +6,7 @@ import { apiServer, endpoints } from '../../../services';
 import { UserResponse } from '../../../../../backend/types/user';
 import { Spinner } from '../../../components';
 import { Navigate } from 'react-router-dom';
+import { UploadEntity } from '../../../../../backend/src/modules/upload/entities';
 
 export function Profile() {
   const { tokens, currentUser, setCurrentUser } = useAuth();
@@ -22,25 +23,25 @@ export function Profile() {
     }
   };
 
-  const handleUpload = async () => {
+  const handleUploadClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
     if (!avatar) {
       window.alert('File is not uploaded');
       console.error('File is not uploaded', avatar);
       return null;
     }
-
+    event.currentTarget.disabled = true;
     setLoading(true);
 
     const formData = new FormData();
     formData.append('avatar', avatar);
 
-    const { data: profilePictureUrl } = await apiServer.postFormData<FormData>(
+    const { data: profilePicture } = await apiServer.postFormData<UploadEntity>(
       endpoints.userUploadPicture,
       formData,
       tokens?.access_token,
     );
-    const user = { ...currentUser, profilePictureUrl };
-    setCurrentUser(user as UserResponse);
+    const user: UserResponse = { ...currentUser, profilePicture };
+    setCurrentUser(user);
     setLoading(false);
   };
 
@@ -51,9 +52,9 @@ export function Profile() {
         <label>
           <p>Upload picture</p>
           {currentUser ? currentUser.name : <h1>user is not logged in</h1>}
-          <input type="file" name="avatar" onChange={handleFileChange} accept=".jpg, .jpeg, .png" />
-          <button type="submit" onClick={handleUpload}>
-            Upload avatar
+          <input disabled={loading} type="file" name="avatar" onChange={handleFileChange} accept=".jpg, .jpeg, .png" />
+          <button disabled={loading} type="submit" onClick={handleUploadClick}>
+            {loading ? 'Sending...' : 'Upload avatar'}
           </button>
         </label>
       </div>

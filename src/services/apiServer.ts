@@ -46,6 +46,17 @@ class ApiServer implements ApiServerType {
     return this.handleFetch<ResponseData>(this.getUrl(endpoint), init);
   }
 
+  async postRt<ResponseData>(endpoint: string, refreshToken?: string): Promise<ClientApiResponse<ResponseData>> {
+    const init: RequestInit = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${refreshToken}` },
+    };
+
+    init;
+
+    return this.handleFetch<ResponseData>(this.getUrl(endpoint), init);
+  }
+
   async postFormData<ResponseData>(
     endpoint: string,
     requestData: FormData,

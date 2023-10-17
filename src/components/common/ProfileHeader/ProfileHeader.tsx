@@ -11,19 +11,18 @@ export function ProfileHeader() {
   const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
-    const arr = document.querySelector('.avatar-header svg') as HTMLElement;
+    const arrow = document.querySelector('.avatar-header img:nth-child(2)') as HTMLElement;
     const dropdown = document.querySelector('.dropdown') as HTMLDivElement;
 
-    if (arr) {
-      // window.getComputedStyle(arr).transform === 'none'
-      clicked ? (arr.style.transform = 'rotate(90deg)') : (arr.style.transform = 'none');
+    if (arrow) {
+      clicked ? (arrow.style.transform = 'rotate(90deg)') : (arrow.style.transform = 'none');
       if (dropdown) {
-        // arr.style.transform === 'rotate(90deg)'
         clicked ? (dropdown.style.display = 'block') : (dropdown.style.display = 'none');
         document.addEventListener('click', (e: MouseEvent) => {
-          if (!arr.contains(e.target as Node)) {
+          if (!arrow.contains(e.target as Node)) {
+            setClicked(false);
             dropdown.style.display = 'none';
-            arr.style.transform = 'none';
+            arrow.style.transform = 'none';
           }
         });
       }
@@ -32,8 +31,7 @@ export function ProfileHeader() {
 
   return (
     <>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-      <div className="avatar-header-container" onClick={() => setClicked(!clicked)}>
+      <div className="avatar-header-container" role="presentation" onClick={() => setClicked(!clicked)}>
         {currentUser ? <AvatarHeader /> : <LoginBar />}
       </div>
       {currentUser ? <DropdownMenu /> : null}

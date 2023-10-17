@@ -83,8 +83,6 @@ export function Like(props: Prop) {
 
   useEffect(() => {
     toggleLike(currentUser?.likedArticles?.find((el) => el.id === articleId) !== undefined);
-    // console.log(currentUser?.likedArticles?.find((el) => el.id === articleId) !== undefined);
-    // console.log(currentUser?.likedArticles);
   }, [articleId, currentUser?.likedArticles]);
 
   return (

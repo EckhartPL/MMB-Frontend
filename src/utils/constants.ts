@@ -19,3 +19,5 @@ export const months = [
   'November',
   'December',
 ];
+
+export const TOKEN_REFRESH_INTERVAL = 590000;

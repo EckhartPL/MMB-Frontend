@@ -1,6 +1,16 @@
-import React from 'react';
-import { Btn } from '../../../components/common/Btn/Btn';
+import React, { useState } from 'react';
+import { Btn } from '../../../components';
 
 export function Filter() {
-  return <Btn text="Filter" to="/filter" />;
+  const [toggle, setToggle] = useState(false);
+
+  return (
+    <>
+      {toggle ? (
+        <input id="input" onClick={() => setToggle(!toggle)} type="text"></input>
+      ) : (
+        <Btn text="Filter" onClick={() => setToggle(!toggle)} />
+      )}
+    </>
+  );
 }

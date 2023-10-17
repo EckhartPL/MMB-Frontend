@@ -2,8 +2,8 @@ import React from 'react';
 import { defaultAvatar } from '../../../utils';
 
 interface Prop {
-  userName: string;
-  userProfilePictureUrl: string;
+  userName?: string;
+  userProfilePictureUrl?: string;
 }
 
 export function Avatar(props: Prop) {
@@ -11,7 +11,7 @@ export function Avatar(props: Prop) {
   return (
     <div className="avatar">
       <img
-        src={userProfilePictureUrl === null ? defaultAvatar : userProfilePictureUrl}
+        src={userProfilePictureUrl ?? defaultAvatar}
         alt={userName !== null ? `${userName} profile` : 'User Profile'}
       />
     </div>

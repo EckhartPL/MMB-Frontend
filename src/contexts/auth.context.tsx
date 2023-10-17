@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { AuthContextProps, AuthContextProviderProps, TokensContextInterface } from '@frontendTypes';
 import { LoginRequest, LoginResponse, Tokens, UserResponse } from '@backendTypes';
 import { apiServer, endpoints } from '../services';
+import { TOKEN_REFRESH_INTERVAL } from '../utils';
 
 export const UserContext = createContext<AuthContextProps | null>(null);
 export const TokensContext = createContext<TokensContextInterface | null>(null);
@@ -40,6 +41,22 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   useEffect(() => {
     localStorage.setItem('user', JSON.stringify(currentUser));
   }, [currentUser]);
+
+  useEffect(() => {
+    const refreshAccessToken = async () => {
+      const newTokens = await apiServer.postRt<Tokens>(endpoints.refreshAccessToken, tokens?.refresh_token);
+      setTokens(newTokens.data || null);
+    };
+
+    // Set up the interval to refresh the access token
+    const tokenRefreshInterval = setInterval(async () => {
+      await refreshAccessToken();
+      console.log('token refreshed');
+    }, TOKEN_REFRESH_INTERVAL);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(tokenRefreshInterval);
+  }, [tokens?.access_token, tokens?.refresh_token]);
 
   useEffect(() => {
     localStorage.setItem('tokens', JSON.stringify(tokens));
