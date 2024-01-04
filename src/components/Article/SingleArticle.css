@@ -1,28 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Goldman:700|Goldman:400');
+
 a {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 div[class^='article-'] {
   display: flex;
   flex-direction: column;
-  width: 350px;
-  margin: 0 auto 125px auto;
+  width: 750px;
+  margin: 0 auto 200px;
   transition-duration: 0.5s;
   z-index: 99999;
+  font-family: 'Goldman';
+  font-weight: 400;
 }
 
 div[class^='article-']:last-child {
   display: flex;
   flex-direction: column;
-  width: 350px;
-  margin: 0 auto 25px auto;
+  width: 750px;
+  margin: 0 auto 100px;
   transition-duration: 0.5s;
   z-index: 99999;
 }
 
 div[class^='article-']:hover .avatar {
-  box-shadow: 5px -5px rgba(46, 111, 201, 0.1);
+  box-shadow: 8px -5px rgba(46, 111, 201, 0.1);
 }
 
 .title-bar-container {
@@ -31,18 +35,24 @@ div[class^='article-']:hover .avatar {
   justify-content: space-between;
   height: 75px;
   font-size: 1rem;
+  border-top-style: solid;
+  border-top-right-radius: 15%;
+  border-left-style: solid;
+  border-width: 5px;
+  border-color: var(--article-background-color);
 }
 
 .title-bar-container .avatar {
   position: absolute;
   height: 75px;
   width: 75px;
-  bottom: 5rem;
-  right: calc(50% - 2rem);
-  border-radius: 50%;
+  bottom: 2rem;
+  /* right: calc(50% - 2rem); */
+  left: -15px;
+  border-radius: 10%;
   overflow: hidden;
   transition-duration: 0.5s;
-  border: 3px solid #ffffff;
+  border: 3px solid var(--article-background-color);
 }
 
 .title-bar-container .avatar img {
@@ -53,9 +63,8 @@ div[class^='article-']:hover .avatar {
 .title-bar-container .title {
   height: 75px;
   width: 225px;
-  font-family: Oswald;
   padding: 0.2em 0.4em;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   justify-content: left;
 }
 
@@ -63,7 +72,7 @@ div[class^='article-']:hover .avatar {
   height: 75px;
 }
 
-.title-bar-containe .created-at {
+.title-bar-container .created-at {
   text-align: end;
   width: 40%;
   font-size: 1em;
@@ -74,8 +83,8 @@ div[class^='article-']:hover .avatar {
 div[class^='article-'] .description {
   display: flex;
   position: relative;
-  font-family: 'PT-Sans';
-  font-size: 1em;
+  font-size: 0.85rem;
+  letter-spacing: 0.02rem;
   width: 100%;
   height: 300px;
   margin: 0;
@@ -103,48 +112,6 @@ div[class^='article-'] .description p:before {
   background: linear-gradient(transparent 240px, var(--article-background-color));
 }
 
-.blur {
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
-}
-
-div[class^='extended-description-'] {
-  display: none;
-  position: absolute;
-  top: 75px;
-  height: 300px;
-  width: 200%;
-  padding: 11px;
-  background-color: var(--article-background-color);
-  /* animation name duration delay finite? direction */
-  animation: extend 0.5s linear 0s forwards normal;
-}
-
-@keyframes extend {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(50%);
-  }
-}
-
-div[class^='article-'] div[class^='extended-description-'] p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-div[class^='article-'] div[class^='extended-description-'] p:before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: linear-gradient(transparent 240px, var(--article-background-color));
-}
-
 .move-left {
   transform: translateX(-100%);
 }
@@ -162,6 +129,26 @@ div[class^='article-'] div[class^='extended-description-'] p:before {
   height: 5rem;
   border-radius: 50%;
   z-index: -1;
+  /* animation: doubleArrow 1.3s infinite; */
+}
+
+.double-arrow-svg:hover {
+  animation: doubleArrow 1.3s infinite;
+  z-index: 0;
+}
+
+@keyframes doubleArrow {
+  0% {
+    opacity: 10%;
+    transform: translateX(0);
+  }
+  60% {
+    opacity: 90%;
+  }
+  100% {
+    opacity: 0%;
+    transform: translateX(3rem);
+  }
 }
 
 .social {
@@ -170,7 +157,6 @@ div[class^='article-'] div[class^='extended-description-'] p:before {
   justify-content: space-between;
   height: fit-content;
   align-items: center;
-  font-weight: bold;
   font-size: 1.5rem;
 }
 
@@ -196,7 +182,6 @@ div[class^='article-'] div[class^='extended-description-'] p:before {
   .title-bar-container .title {
     height: 75px;
     width: 150px;
-    font-family: Oswald;
     padding: 0.2em 0;
     font-size: 1rem;
     justify-content: left;

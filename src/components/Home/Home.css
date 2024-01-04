@@ -4,10 +4,10 @@ body {
 
 .home-container {
   display: flex;
-  height: 100vh;
+  height: 100%;
   width: var(--container-width);
   padding: var(--container-padding);
-  margin: auto;
+  margin: auto 150px;
 }
 
 .best-articles-container {

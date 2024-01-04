@@ -26,10 +26,9 @@ export function Article() {
 
   return (
     <>
+      <Header />
       <div className="articles-container">
-        <div className="articles-header">
-          <Header />
-        </div>
+        <div className="articles-header"></div>
         {article?.items ? (
           article.items.map((item) => (
             <SingleArticle

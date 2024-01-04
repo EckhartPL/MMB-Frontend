@@ -6,9 +6,9 @@ import { Btn } from '../common/Btn/Btn';
 
 export function Header() {
   return (
-    <>
+    <div className="header-container">
       <Btn text="Add article" to="/article" />
       <Filter />
-    </>
+    </div>
   );
 }

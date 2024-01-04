@@ -1,22 +1,3 @@
-#filter-btn-animate {
+.search {
   animation: search forwards .5s;
-}
-@keyframes search {
-  0% {
-    width: 0px;
-    color: transparent;
-    background-color: transparent;
-  }
-
-  50% {
-    width: 0px;
-    color: transparent;
-    background-color: transparent;
-  }
-
-  100% {
-    width: 200px;
-    color: #ffffff;
-    background-color: #23232e;
-  }
 }

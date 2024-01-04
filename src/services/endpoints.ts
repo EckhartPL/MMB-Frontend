@@ -1,6 +1,6 @@
 export const endpoints = {
   home: '/',
-  contact: '/contact',
+  contact: 'contact',
   login: 'auth/login',
   register: 'auth/register',
   logout: 'auth/logout',
@@ -10,8 +10,9 @@ export const endpoints = {
   deleteArticle: 'article/delete',
   likeArticle: 'article/like/',
   countComments: 'article/comments/count',
-  userArticle: '/user/article',
+  userArticle: 'user/article',
   userProfile: 'user/profile',
   userSettings: 'user/settings',
+  userUpdateInfo: 'user/update',
   userUploadPicture: 'upload/avatar',
 };

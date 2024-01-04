@@ -1,14 +1,12 @@
 import React, { ChangeEvent, useState } from 'react';
-import { useAuth } from '../../../contexts';
-
-import './Profile.css';
-import { apiServer, endpoints } from '../../../services';
-import { UserResponse } from '../../../../../backend/types/user';
-import { Spinner } from '../../../components';
+import { Spinner } from '../../components';
+import { UploadEntity } from '../../../../backend/src/modules/upload/entities';
+import { apiServer, endpoints } from '../../services';
+import { useAuth } from '../../contexts';
+import { UserResponse } from '../../../../backend/types/user';
 import { Navigate } from 'react-router-dom';
-import { UploadEntity } from '../../../../../backend/src/modules/upload/entities';
 
-export function Profile() {
+export const Upload = () => {
   const { tokens, currentUser, setCurrentUser } = useAuth();
   const [avatar, setAvatar] = useState<File>();
   const [loading, setLoading] = useState(false);
@@ -46,18 +44,15 @@ export function Profile() {
   };
 
   return (
-    <div className="profile-container">
+    <div className="profile-upload-picture">
       {loading ? <Spinner /> : null}
-      <div className="profile-upload-picture">
-        <label>
-          <p>Upload picture</p>
-          {currentUser ? currentUser.name : <h1>user is not logged in</h1>}
-          <input disabled={loading} type="file" name="avatar" onChange={handleFileChange} accept=".jpg, .jpeg, .png" />
-          <button disabled={loading} type="submit" onClick={handleUploadClick}>
-            {loading ? 'Sending...' : 'Upload avatar'}
-          </button>
-        </label>
-      </div>
+      <label>
+        <div id="profile-upload-box">Upload picture {currentUser.name}</div>
+        <input disabled={loading} type="file" name="avatar" onChange={handleFileChange} accept=".jpg, .jpeg, .png" />
+        <button disabled={loading} type="submit" onClick={handleUploadClick}>
+          {loading ? 'Sending...' : 'Upload avatar'}
+        </button>
+      </label>
     </div>
   );
-}
+};
