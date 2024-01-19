@@ -25,6 +25,11 @@ div[class^='article-']:last-child {
   z-index: 99999;
 }
 
+div[class^='article-']:hover .double-arrow-svg {
+  animation: doubleArrow 1.3s infinite;
+  z-index: 0;
+}
+
 div[class^='article-']:hover .avatar {
   box-shadow: 8px -5px rgba(46, 111, 201, 0.1);
 }
@@ -129,12 +134,7 @@ div[class^='article-'] .description p:before {
   height: 5rem;
   border-radius: 50%;
   z-index: -1;
-  /* animation: doubleArrow 1.3s infinite; */
-}
-
-.double-arrow-svg:hover {
-  animation: doubleArrow 1.3s infinite;
-  z-index: 0;
+  transition: 0.3s ease;
 }
 
 @keyframes doubleArrow {

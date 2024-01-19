@@ -6,22 +6,18 @@
 .articles-container {
   display: flex;
   flex-direction: column;
-  margin: 100px auto auto 10%;
+  margin: 100px auto auto 200px;
   width: var(--container-width);
   padding: var(--container-padding);
-}
-
-.articles-header {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 550px;
-  margin: 0 auto 125px auto;
 }
 
 /* Small screen */
 @media only screen and (max-width: 600px) {
   .articles-header {
     width: 250px;
+  }
+
+  .articles-container {
+    margin: 100px auto auto auto;
   }
 }

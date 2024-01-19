@@ -4,7 +4,8 @@
 }
 
 #profile-upload-box {
-  padding: 20px;
+  text-align: center;
+  padding: 20px 0;
   cursor: pointer;
 }
 
@@ -55,7 +56,28 @@
   color: black;
 }
 
-#profile-submit-btn {
+input[type='file'] {
+  display: none;
+}
+
+#upload-input {
+  width: 180px;
+  padding: 5px 20px;
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #45f3ff;
+  color: #28292d;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+#upload-input:hover {
+  color: #00c4e6;
+}
+
+#upload-btn {
   position: relative;
   overflow: hidden;
   margin-top: 20px;
@@ -70,11 +92,30 @@
   transition: color 0.3s ease-in-out;
 }
 
-#profile-submit-btn:hover {
+#upload-btn:hover {
   color: #00c4e6;
 }
 
-#profile-submit-btn::before {
+.submit-btn {
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  padding: 5px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #45f3ff;
+  color: #28292d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  color: #00c4e6;
+}
+
+.submit-btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -98,4 +139,9 @@
   100% {
     background-position: -100% 0;
   }
+}
+
+.form-error {
+  color: red;
+  font-weight: bold;
 }

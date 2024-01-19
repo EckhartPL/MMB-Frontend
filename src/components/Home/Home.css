@@ -30,3 +30,9 @@ body {
   margin-top: 50px;
   font-size: 2ch;
 }
+
+@media screen and (max-width: 600px) {
+  .home-container {
+    margin: 0 0 40px 0;
+  }
+}

@@ -47,9 +47,13 @@ export const Upload = () => {
     <div className="profile-upload-picture">
       {loading ? <Spinner /> : null}
       <label>
-        <div id="profile-upload-box">Upload picture {currentUser.name}</div>
-        <input disabled={loading} type="file" name="avatar" onChange={handleFileChange} accept=".jpg, .jpeg, .png" />
-        <button disabled={loading} type="submit" onClick={handleUploadClick}>
+        <div id="profile-upload-box">Upload profile picture {currentUser.name}</div>
+        <label id="upload-input">
+          Choose File
+          <input disabled={loading} type="file" name="avatar" onChange={handleFileChange} accept=".jpg, .jpeg, .png" />
+        </label>
+
+        <button id="upload-btn" disabled={loading} type="submit" onClick={handleUploadClick}>
           {loading ? 'Sending...' : 'Upload avatar'}
         </button>
       </label>

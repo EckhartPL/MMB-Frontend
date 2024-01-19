@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useAuth } from '../../../contexts';
 
 import './ProfileHeader.css';
@@ -8,33 +8,48 @@ import { AvatarHeader } from './AvatarHeader';
 
 export function ProfileHeader() {
   const { currentUser } = useAuth();
-  const [clicked, setClicked] = useState(false);
+  const [, setClicked] = useState(false);
+  const arrowRef = useRef<HTMLImageElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const arrow = document.querySelector('.avatar-header img:nth-child(2)') as HTMLElement;
-    const dropdown = document.querySelector('.dropdown') as HTMLDivElement;
-
-    if (arrow) {
-      clicked ? (arrow.style.transform = 'rotate(90deg)') : (arrow.style.transform = 'none');
-      if (dropdown) {
-        clicked ? (dropdown.style.display = 'block') : (dropdown.style.display = 'none');
-        document.addEventListener('click', (e: MouseEvent) => {
-          if (!arrow.contains(e.target as Node)) {
-            setClicked(false);
-            dropdown.style.display = 'none';
-            arrow.style.transform = 'none';
-          }
-        });
-      }
+  document.addEventListener('click', (e) => {
+    if (
+      arrowRef &&
+      dropdownRef.current &&
+      arrowRef.current &&
+      dropdownRef &&
+      !arrowRef.current.contains(e.target as Node)
+    ) {
+      setClicked(false);
+      dropdownRef.current.style.display = 'none';
+      arrowRef.current.style.transform = 'none';
     }
-  }, [clicked]);
+  });
+
+  const handleOnClick = () => {
+    if (!currentUser) return;
+
+    setClicked((prevClicked) => {
+      const newClicked = !prevClicked;
+
+      if (newClicked && arrowRef && dropdownRef && dropdownRef.current && arrowRef.current) {
+        arrowRef.current.style.transform = 'rotate(90deg)';
+        dropdownRef.current.style.display = 'block';
+      } else if (arrowRef && dropdownRef && dropdownRef.current && arrowRef.current) {
+        arrowRef.current.style.transform = 'none';
+        dropdownRef.current.style.display = 'none';
+      }
+
+      return newClicked;
+    });
+  };
 
   return (
     <>
-      <div className="avatar-header-container" role="presentation" onClick={() => setClicked(!clicked)}>
-        {currentUser ? <AvatarHeader /> : <LoginBar />}
+      <div className="avatar-header-container" role="presentation" onClick={() => handleOnClick()}>
+        {currentUser ? <AvatarHeader ref={arrowRef} /> : <LoginBar />}
       </div>
-      {currentUser ? <DropdownMenu /> : null}
+      {currentUser ? <DropdownMenu ref={dropdownRef} /> : null}
     </>
   );
 }

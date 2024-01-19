@@ -28,12 +28,12 @@ This is the frontend repository for a personal blog built with React.js - popula
     │       └───Profile
     ├───contexts
     └───utils
-  ```
-  
+```
+
 ## Demo
 
 [![mmb-showcase.gif](https://s2.gifyu.com/images/mmb-showcase.gif)](https://gifyu.com/image/SdQB5)
-    
+
 ## Features
 
 - View blog articles with title, content, author, and date posted
@@ -42,6 +42,7 @@ This is the frontend repository for a personal blog built with React.js - popula
 - Responsive design for desktop and mobile devices
 
 ## Technologies Used
+
 - [React.js](https://pl.reactjs.org/) - A popular JavaScript library for building user interfaces
 - React Router - A routing library for handling client-side routing in React applications
 - Context API - A built-in state management solution in React for managing global application state
@@ -50,7 +51,7 @@ This is the frontend repository for a personal blog built with React.js - popula
 
 ## License
 
-This repository has no license, then all rights are reserved and it is not Open Source or Free. 
+This repository has no license, then all rights are reserved and it is not Open Source or Free.
 You cannot modify or redistribute this code without explicit permission from the copyright holder (Mateusz Masek).
 
 ## Contact

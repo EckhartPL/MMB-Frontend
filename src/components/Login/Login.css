@@ -186,18 +186,11 @@ input[type='submit']:active {
   opacity: 0.8;
 }
 
-.input-box svg {
+.input-box img {
   position: absolute;
   right: 10px;
   bottom: 12px;
   width: 20px;
   height: 20px;
   z-index: 11;
-}
-.locked {
-  fill: #0e0e11;
-}
-.unlocked {
-  fill: #ffffff;
-  opacity: 0.8;
 }

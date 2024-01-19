@@ -1,6 +1,5 @@
 import React, { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Btn } from '../components';
 import { useAuth } from '../contexts';
 import { routes } from '../routes';
 import { apiServer, endpoints } from '../services';
@@ -58,9 +57,9 @@ export const AddArticleForm = () => {
         />
       </div>
 
-      <div className="btn-container">
-        <Btn text="Save Article" />
-      </div>
+      <button id="add-article-btn" type="submit" className="submit-btn">
+        Save
+      </button>
     </form>
   );
 };

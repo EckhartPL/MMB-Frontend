@@ -2,11 +2,11 @@
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   /* background: #1c1d24; */
-  background: rgb(28,29,36);
-  background: linear-gradient(90deg, rgba(28,29,36,1) 0%, rgba(39,44,87,1) 100%); 
+  background: rgb(28, 29, 36);
+  background: linear-gradient(90deg, rgba(28, 29, 36, 1) 0%, rgba(39, 44, 87, 1) 100%);
   --primary-color: #45f3ff;
   --secondary-color: #479bff;
-  --article-background-color: #6676FA;
+  --article-background-color: #6676fa;
 }
 
 *,

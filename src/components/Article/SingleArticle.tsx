@@ -10,20 +10,10 @@ import { ArticleInterface } from '@backendTypes';
 import { DoubleArrow } from '../../assets';
 
 export function SingleArticle({ id, createdAt, description, title, user, likes }: ArticleInterface) {
-  // const doubleArrowSvg = document.querySelector(`div[class^="article-${id}"] .double-arrow-svg`) as HTMLDivElement;
-  console.log(user);
-
-  // const svgOnMouseEnter = () => {
-  //   doubleArrowSvg.style.animation = 'doubleArrow 1.3s infinite';
-  //   doubleArrowSvg.style.zIndex = '0';
-  // };
-  // const svgOnMouseLeave = () => {
-  //   doubleArrowSvg.style.animation = '';
-  // };
   const createdAtArticleDate = getCreatedAtArticle(createdAt);
 
   return (
-    // <div className={`article-${id}`} onMouseEnter={svgOnMouseEnter} onMouseLeave={svgOnMouseLeave}>
+    <div className={`article-${id}`}>
       <div className="title-bar-container">
         <Link to={`/user/${user.name}`}>
           <Avatar userName={user.name} userProfilePictureUrl={user?.profilePicture?.url || null} />
